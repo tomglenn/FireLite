@@ -53,6 +53,10 @@
       <Project>{ffd05c56-b91a-4257-900d-2009dc8cf0cf}</Project>
       <Name>FireLite.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FireLite.Core\FireLite.Core.csproj">
+      <Project>{5DB73B3E-3466-48B1-8BB5-51CF9060905D}</Project>
+      <Name>FireLite.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

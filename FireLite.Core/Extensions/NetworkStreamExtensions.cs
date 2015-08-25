@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Sockets;
 using FireLite.Core.Exceptions;
 
@@ -13,13 +14,20 @@ namespace FireLite.Core.Extensions
 
             while (bytesRead < n)
             {
-                var chunk = networkStream.Read(buffer, bytesRead, buffer.Length - bytesRead);
-                if (chunk == 0)
+                try
+                {
+                    var chunk = networkStream.Read(buffer, bytesRead, buffer.Length - bytesRead);
+                    if (chunk == 0)
+                    {
+                        throw new ConnectionException();
+                    }
+
+                    bytesRead += chunk;
+                }
+                catch (IOException)
                 {
                     throw new ConnectionException();
                 }
-
-                bytesRead += chunk;
             }
 
             return buffer;

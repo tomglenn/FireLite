@@ -6,11 +6,16 @@ namespace FireLite.Samples.SimpleServer.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Press any key to connect");
-            Console.ReadKey();
-
             var client = new SimpleClient("127.0.0.1", 1337);
-            client.Connect();
+            var connected = false;
+
+            while (!connected)
+            {
+                Console.WriteLine("Press any key to connect");
+                Console.ReadKey();
+
+                connected = client.Connect();
+            }
 
             Console.WriteLine("Press any key to disconnect");
             Console.ReadKey();
