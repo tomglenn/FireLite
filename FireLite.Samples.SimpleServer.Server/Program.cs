@@ -9,6 +9,7 @@ namespace FireLite.Samples.SimpleServer.Server
             var server = new SimpleServer(1337);
             server.Start();
             Console.ReadKey();
+            server.Stop();
         }
     }
 }

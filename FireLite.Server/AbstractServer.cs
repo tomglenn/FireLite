@@ -8,14 +8,14 @@ using FireLite.Server.Interfaces;
 
 namespace FireLite.Server
 {
-    public abstract class Server : IServer
+    public abstract class AbstractServer : IServer
     {
         public int Port { get; set; }
 
         private readonly TcpListener tcpListener;
         private Thread listenThread;
 
-        protected Server(int port)
+        protected AbstractServer(int port)
         {
             Port = port;
             tcpListener = new TcpListener(IPAddress.Any, Port);
@@ -33,18 +33,26 @@ namespace FireLite.Server
 
         public virtual void Stop()
         {
-            listenThread.Abort();
-            tcpListener.Stop();
             Console.WriteLine("Server stopped");
+
+            tcpListener.Stop();
+            listenThread.Abort();
         }
 
         private void ListenForClients()
         {
             while (true)
             {
-                var client = tcpListener.AcceptTcpClient();
-                var clientThread = new Thread(HandleClientConnection);
-                clientThread.Start(client);
+                try
+                {
+                    var client = tcpListener.AcceptTcpClient();
+                    var clientThread = new Thread(HandleClientConnection);
+                    clientThread.Start(client);
+                }
+                catch (ObjectDisposedException)
+                {
+                    listenThread.Abort();
+                }
             }
         }
 

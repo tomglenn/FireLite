@@ -5,7 +5,7 @@ using FireLite.Core.Extensions;
 
 namespace FireLite.Client
 {
-    public abstract class Client : IClient
+    public abstract class AbstractClient : IClient
     {
         public string Host { get; set; }
         public int Port { get; set; }
@@ -13,7 +13,7 @@ namespace FireLite.Client
         private readonly TcpClient tcpClient;
         private NetworkStream networkStream;
 
-        protected Client(string host, int port)
+        protected AbstractClient(string host, int port)
         {
             Host = host;
             Port = port;
