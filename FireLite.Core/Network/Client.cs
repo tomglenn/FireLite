@@ -78,7 +78,7 @@ namespace FireLite.Core.Network
             Console.WriteLine("Got Message: {0}", str);
         }
 
-        protected virtual void ListenToServer()
+        private void ListenToServer()
         {
             networkStream = tcpClient.GetStream();
 
@@ -92,6 +92,7 @@ namespace FireLite.Core.Network
                 catch (ConnectionException)
                 {
                     Disconnect();
+                    break;
                 }
             }
         }

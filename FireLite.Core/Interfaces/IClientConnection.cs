@@ -6,6 +6,7 @@ namespace FireLite.Core.Interfaces
     {
         Guid Id { get; }
 
+        void Disconnect();
         void SendPacket(byte[] packetBytes);
     }
 }
