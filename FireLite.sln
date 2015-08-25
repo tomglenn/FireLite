@@ -9,10 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{F9E2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimpleServer", "SimpleServer", "{E2077E9D-7AB7-4849-9B51-944008A36173}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireLite.Client", "FireLite.Client\FireLite.Client.csproj", "{FFD05C56-B91A-4257-900D-2009DC8CF0CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireLite.Server", "FireLite.Server\FireLite.Server.csproj", "{464E2F68-D6AB-444D-B47F-07C72ED5EC6F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireLite.Samples.SimpleServer.Server", "FireLite.Samples.SimpleServer.Server\FireLite.Samples.SimpleServer.Server.csproj", "{E2DA786A-303F-4CEF-9983-93518C7DAD65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireLite.Samples.SimpleServer.Client", "FireLite.Samples.SimpleServer.Client\FireLite.Samples.SimpleServer.Client.csproj", "{B71C09F1-D86D-4D08-BB76-E1F38C70B43A}"
@@ -27,14 +23,6 @@ Global
 		{5DB73B3E-3466-48B1-8BB5-51CF9060905D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DB73B3E-3466-48B1-8BB5-51CF9060905D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DB73B3E-3466-48B1-8BB5-51CF9060905D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FFD05C56-B91A-4257-900D-2009DC8CF0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFD05C56-B91A-4257-900D-2009DC8CF0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFD05C56-B91A-4257-900D-2009DC8CF0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFD05C56-B91A-4257-900D-2009DC8CF0CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{464E2F68-D6AB-444D-B47F-07C72ED5EC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{464E2F68-D6AB-444D-B47F-07C72ED5EC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{464E2F68-D6AB-444D-B47F-07C72ED5EC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{464E2F68-D6AB-444D-B47F-07C72ED5EC6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2DA786A-303F-4CEF-9983-93518C7DAD65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2DA786A-303F-4CEF-9983-93518C7DAD65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2DA786A-303F-4CEF-9983-93518C7DAD65}.Release|Any CPU.ActiveCfg = Release|Any CPU
