@@ -3,7 +3,7 @@ using FireLite.Core.Extensions;
 
 namespace FireLite.Samples.SimpleServer.Server
 {
-    public class SimpleServer : FireLite.Core.Network.Server
+    public class SimpleServer : Core.Network.Server
     {
         public SimpleServer(int port) : base(port)
         {

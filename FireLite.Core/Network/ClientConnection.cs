@@ -39,7 +39,7 @@ namespace FireLite.Core.Network
         {
             networkStream.SendPacket(packetBytes);
         }
-
+        
         private void ListenToClient()
         {
             networkStream = tcpClient.GetStream();
