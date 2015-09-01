@@ -140,10 +140,10 @@ protected override void OnPacketReceived(byte[] packetBytes)
 ```
 
 ## Utility Extension Methods
-FireLite comes with a couple extension methods that facilitate sending UTF8 encoded strings over the TCP connection. These include:
+FireLite comes with a couple of extension methods that facilitate sending UTF8 encoded strings over the TCP connection. These include:
 
-* string GetString(this byte[])
-* byte[] GetString(this string)
+* `string GetString(this byte[])`
+* `byte[] GetString(this string)`
 
 It also comes with a few `NetworkStream` extension methods that facilitate sending and receiving TCP packets. These are really only meant to be used internally by `FireLite.Core` classes, but they have been made public should you wish to use them for any reason. These include:
 
