@@ -7,7 +7,7 @@ namespace FireLite.Samples.SimpleServer.Client
     {
         public SimpleClient(string host, int port) : base(host, port) { }
 
-        public override void OnPacketReceived(byte[] packetBytes)
+        protected override void OnPacketReceived(byte[] packetBytes)
         {
             var packetString = packetBytes.GetString();
 

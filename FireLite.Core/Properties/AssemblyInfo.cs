@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FireLite.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A lightweight TCP Socket Server/Client Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Tom Glenn")]
 [assembly: AssemblyProduct("FireLite.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]

@@ -8,9 +8,5 @@
         bool Connect();
         void Disconnect();
         void SendPacket(byte[] packetBytes);
-        void OnConnected();
-        void OnConnectionFailed();
-        void OnDisconnected();
-        void OnPacketReceived(byte[] packetBytes);
     }
 }

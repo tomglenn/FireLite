@@ -57,22 +57,22 @@ namespace FireLite.Core.Network
             networkStream.SendPacket(packetBytes);
         }
 
-        public virtual void OnConnected()
+        protected virtual void OnConnected()
         {
             Console.WriteLine("Connected to server {0}:{1}", Host, Port);
         }
 
-        public virtual void OnConnectionFailed()
+        protected virtual void OnConnectionFailed()
         {
             Console.WriteLine("Connection failed to server {0}:{1}, please try again", Host, Port);
         }
 
-        public virtual void OnDisconnected()
+        protected virtual void OnDisconnected()
         {
             Console.WriteLine("Disconnected from server");
         }
 
-        public virtual void OnPacketReceived(byte[] packetBytes)
+        protected virtual void OnPacketReceived(byte[] packetBytes)
         {
             var str = packetBytes.GetString();
             Console.WriteLine("Got Message: {0}", str);

@@ -22,7 +22,7 @@ namespace FireLite.Samples.JsonPacketServer.Client
             SendPacket(jsonString.GetBytes());
         }
 
-        public override void OnPacketReceived(byte[] packetBytes)
+        protected override void OnPacketReceived(byte[] packetBytes)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace FireLite.Samples.JsonPacketServer.Client
             }
         }
 
-        public void OnPacketReceived(Packet packet)
+        protected void OnPacketReceived(Packet packet)
         {
             if (!packetHandlers.ContainsKey(packet.OpCode))
             {

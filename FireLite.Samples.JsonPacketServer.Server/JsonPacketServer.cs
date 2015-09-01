@@ -31,7 +31,7 @@ namespace FireLite.Samples.JsonPacketServer.Server
             clientConnection.SendPacket(jsonString.GetBytes());
         }
 
-        public override void OnClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes)
+        protected override void OnClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace FireLite.Samples.JsonPacketServer.Server
             }
         }
 
-        public void OnClientPacketReceived(ClientConnection clientConnection, Packet packet)
+        protected void OnClientPacketReceived(ClientConnection clientConnection, Packet packet)
         {
             var helloPacket = packet as HelloPacket;
             if (helloPacket != null)

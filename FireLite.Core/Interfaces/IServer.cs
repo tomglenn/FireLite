@@ -1,6 +1,4 @@
-﻿using FireLite.Core.Network;
-
-namespace FireLite.Core.Interfaces
+﻿namespace FireLite.Core.Interfaces
 {
     public interface IServer
     {
@@ -8,11 +6,5 @@ namespace FireLite.Core.Interfaces
 
         void Start();
         void Stop();
-        void NotifyClientDisconnected(ClientConnection clientConnection);
-        void OnStarted();
-        void OnStopped();
-        void OnClientConnected(ClientConnection clientConnection);
-        void OnClientDisconnected(ClientConnection clientConnection);
-        void OnClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes);
     }
 }

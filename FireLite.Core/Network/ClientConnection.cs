@@ -7,20 +7,24 @@ using FireLite.Core.Interfaces;
 
 namespace FireLite.Core.Network
 {
+    public delegate void ClientConnectionEventHandler(ClientConnection sender);
+    public delegate void ClientPacketReceivedEventHandler(ClientConnection sender, byte[] bytes);
+
     public class ClientConnection : IClientConnection
     {
+        public event ClientConnectionEventHandler Disconnected;
+        public event ClientPacketReceivedEventHandler PacketReceived;
+
         public Guid Id { get; private set; }
 
-        private readonly IServer server;
         private readonly TcpClient tcpClient;
         private NetworkStream networkStream;
         private readonly Thread listenThread;
 
-        public ClientConnection(IServer server, TcpClient tcpClient)
+        public ClientConnection(TcpClient tcpClient)
         {
             Id = Guid.NewGuid();
             
-            this.server = server;
             this.tcpClient = tcpClient;
 
             listenThread = new Thread(ListenToClient);
@@ -29,7 +33,10 @@ namespace FireLite.Core.Network
 
         public void Disconnect()
         {
-            server.NotifyClientDisconnected(this);
+            if (Disconnected != null)
+            {
+                Disconnected(this);
+            }
 
             tcpClient.Close();
             listenThread.Abort();
@@ -49,7 +56,11 @@ namespace FireLite.Core.Network
                 try
                 {
                     var packetBytes = networkStream.ReadPacket();
-                    server.OnClientPacketReceived(this, packetBytes);
+
+                    if (PacketReceived != null)
+                    {
+                        PacketReceived(this, packetBytes);
+                    }
                 }
                 catch (ConnectionException)
                 {

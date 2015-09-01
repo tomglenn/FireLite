@@ -44,38 +44,27 @@ namespace FireLite.Core.Network
             OnStopped();
         }
 
-        public void NotifyClientDisconnected(ClientConnection clientConnection)
-        {
-            var connectedClient = ConnectedClients.FirstOrDefault(x => x.Id == clientConnection.Id);
-            if (connectedClient != null)
-            {
-                ConnectedClients.Remove(connectedClient);
-            }
-
-            OnClientDisconnected(clientConnection);
-        }
-
-        public virtual void OnStarted()
+        protected virtual void OnStarted()
         {
             Console.WriteLine("Server started on port {0}", Port);
         }
 
-        public virtual void OnStopped()
+        protected virtual void OnStopped()
         {
             Console.WriteLine("Server stopped");
         }
 
-        public virtual void OnClientConnected(ClientConnection clientConnection)
+        protected virtual void OnClientConnected(ClientConnection clientConnection)
         {
             Console.WriteLine("Client connected: {0}", clientConnection.Id);
         }
 
-        public virtual void OnClientDisconnected(ClientConnection clientConnection)
+        protected virtual void OnClientDisconnected(ClientConnection clientConnection)
         {
             Console.WriteLine("Client disconnected: {0}", clientConnection.Id);
         }
 
-        public virtual void OnClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes)
+        protected virtual void OnClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes)
         {
             Console.WriteLine("Packet received from client {0}:\n{1}", clientConnection.Id, packetBytes.GetString());
         }
@@ -87,7 +76,7 @@ namespace FireLite.Core.Network
                 try
                 {
                     var client = tcpListener.AcceptTcpClient();
-                    var clientThread = new Thread(HandleClientConnection);
+                    var clientThread = new Thread(HandleClientConnected);
                     clientThread.Start(client);
                 }
                 catch (ObjectDisposedException)
@@ -97,12 +86,31 @@ namespace FireLite.Core.Network
             }
         }
 
-        private void HandleClientConnection(object client)
+        private void HandleClientConnected(object client)
         {
-            var clientConnection = new ClientConnection(this, (TcpClient) client);
+            var clientConnection = new ClientConnection((TcpClient) client);
             ConnectedClients.Add(clientConnection);
 
+            clientConnection.Disconnected += HandleClientDisconnected;
+            clientConnection.PacketReceived += HandleClientPacketReceived;
+
             OnClientConnected(clientConnection);
+        }
+
+        private void HandleClientDisconnected(ClientConnection clientConnection)
+        {
+            var connectedClient = ConnectedClients.FirstOrDefault(x => x.Id == clientConnection.Id);
+            if (connectedClient != null)
+            {
+                ConnectedClients.Remove(connectedClient);
+            }
+
+            OnClientDisconnected(clientConnection);
+        }
+
+        private void HandleClientPacketReceived(ClientConnection clientConnection, byte[] packetBytes)
+        {
+            OnClientPacketReceived(clientConnection, packetBytes);
         }
     }
 }
