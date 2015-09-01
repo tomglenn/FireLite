@@ -5,6 +5,12 @@ FireLite is an extremely lightweight TCP Socket Server/Client Library that enabl
 FireLite was built primarily to facilitate the creation of a lightweight online multiplayer game and so it's key functionality is to provide a simple and elegant solution to transferring raw bytes over a TCP connection.
 
 ## Usage
+### Installation
+Open NuGet Packet Manager Console and type:
+```
+Install-Package FireLite.Core
+```
+
 ### Creating a Basic Server
 To create a basic server, you simply inherit from `FireLite.Core.Network.Server`.
 
