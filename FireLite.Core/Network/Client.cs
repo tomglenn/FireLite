@@ -49,7 +49,11 @@ namespace FireLite.Core.Network
             OnDisconnected();
 
             tcpClient.Close();
-            listenThread.Abort();
+
+            if (listenThread != null)
+            {
+                listenThread.Abort();
+            }
         }
 
         public void SendPacket(byte[] packetBytes)
