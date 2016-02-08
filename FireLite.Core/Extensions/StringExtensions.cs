@@ -6,8 +6,7 @@ namespace FireLite.Core.Extensions
     {
         public static byte[] GetBytes(this string str)
         {
-            var encoder = new UTF8Encoding();
-            return encoder.GetBytes(str);
+            return Encoding.UTF8.GetBytes(str);
         }
     }
 }
