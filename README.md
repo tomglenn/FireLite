@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tomeglenn/FireLite.svg?branch=master)](https://travis-ci.org/tomeglenn/FireLite)
+[![Build Status](https://travis-ci.org/tomeglenn/FireLite.svg?branch=develop)](https://travis-ci.org/tomeglenn/FireLite)
 
 # FireLite
 ### A Lightweight TCP Socket Server/Client Library
