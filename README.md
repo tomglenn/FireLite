@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tomeglenn/FireLite.svg?branch=master)](https://travis-ci.org/tomeglenn/FireLite)
+
 # FireLite
 ### A Lightweight TCP Socket Server/Client Library
 FireLite is an extremely lightweight TCP Socket Server/Client Library that enables you to quickly and easily setup client/server communication in your .NET applications.
